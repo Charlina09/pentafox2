@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Fetch</title>
+	<link rel="stylesheet" type="text/css" href="hackersearch.css">
+	<script src="https://kit.fontawesome.com/ea06a196a3.js"></script>
+	<style type="text/css">
+
+		.search{
+			font-size: 13px
+		}
+		.by{
+			font-size: 13px
+		}.for{
+			font-size: 13px
+		}
+		.title{
+			float :right;
+			background-color: #F5F5F5
+
+		}
+		.logo
+		{
+			float :left;
+			padding-left: 10px;
+			padding-right: 10px;
+    		padding-top: 5px;
+		}
+			.div-header
+			{
+				padding-top: 10px;
+				width: 200px;
+				font-size: 18px;
+			}
+		a
+		{
+			color: black;
+		}
+		a:hover
+		{
+text-decoration: underline;
+		}
+		.settings
+		{
+			float :right;   
+			 position: relative;
+    margin-top: -10px;
+    top: -68.400px;
+		}
+		.div200
+		{
+
+
+		}
+		.font-points
+		{
+			font-size: 11px;
+			padding-top: 3px; 
+		}
+			.font-heading
+		{
+			font-size: 15px;
+		}	.font-link
+		{
+			font-size: 13px;
+		}
+	.bodypadding
+	{
+		padding-left:70px;
+		padding-right: 70px;
+		color: #000;
+    font-family: Verdana,Geneva,sans-serif;
+	}
+	.tablepadding
+	{
+		padding-left: 10px;
+		background-color: #F5F5F5
+	}
+	.tabledata
+	{
+		 padding: 4px;
+  text-align: left;
+	}
+		.wrap
+		{
+			position: absolute;
+			top:6%;
+			left: 50%;
+			
+			transform: translate(-50%,-50%);
+			
+			max-width: 850px;
+			width: 200%;
+			padding: 120px ;
+			border-radius: 2px;
+			
+			justify-content: space-between;
+		}
+		.search-input
+		{
+			    position: relative;
+    margin-top: -14px;
+    top: -38.400px;
+    width: 67%;
+    margin-left: 200px;
+		}
+		.wrap.search-input
+		{
+			
+			width: 100%;
+			padding: 15px 20px;
+			border:none;
+			border-radius: 5px;
+			font-weight: bold;
+			box-shadow: 0px 1px 5px 3px rgba(0,0,0,0,12);
+		}
+		.searchbtn{
+			background:#FFA500 
+			width:10%;
+			border-radius: 5px;
+			position: relative;
+			cursor: pointer;
+
+		}
+		.search-input input{
+			height: 55px;
+			width: 100%;
+			outline: none;
+			border:none;
+			border-radius: 5px;
+			padding: 0 60px 0 20px;
+			font-size: 18px
+
+
+		}
+		.search-input.icon{
+			top:0;
+			color: #E56717;
+
+		}
+		.icon-size
+		{
+			width: 24px;
+			height: 24px;
+		}
+		.pagedesign{
+			text-align: center;
+			font-weight: 600;
+			padding: 20px;
+
+        }
+
+.button {
+	background-color:white;
+  color: #E56717;
+  border: 2px solid #E56717;
+      min-width: 30px;
+    height: 24px;
+    border-radius: 20% 
+  }
+  .button1
+  {
+  	background-color: white;
+  color:black;
+  border: 2px solid #C1C1C1;
+      min-width: 30px;
+    height: 24px;
+     border-radius: 20%  
+  }
+  .symbolbutton
+  {
+  	    min-width: 30px;
+    height: 24px;
+    background-color: white;
+  color: black;
+  border: 1px solid black;
+  }
+
+		#loader{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: 1;
+			width: 120px;
+			height: 120px;
+			margin: -76px 0 0 -76px;
+			border: 16px solid #f3f3f3;
+			border-radius: 50%;
+			border-top: 16px solid #3498db;
+			-webkit-animation:spin 2s linear infinite;
+			animation: spin 2s linear infinite;
+		}
+		@webkit-keyframes spin{
+			0%{-webkit-transform:rotate(0deg);}
+			100%{-webkit-transform:rotate(360deg);}
+		}
+		@keyframes spin{
+			0%{transform: rotate(0deg);}
+			100%{transform: rotate(360deg);}
+		}
+		.animate{
+			position: relative;
+			-webkit-animation-name:animate;
+			-webkit-animation-duration:1s;
+			animation-name: animate;
+			animation-duration: 1s;
+		}
+		@webkit-keyframes animate{
+			from{bottom: -100px;opacity: 0}
+			to{bottom: 0px;opacity: 1}
+		}
+@keyframes animate{
+			from{bottom: -100px;opacity: 0}
+			to{bottom: 0;opacity: 1}
+		}
+		#mydiv{
+			display: none;
+			text-align: center;
+		}
+		.bg{
+			background-color: #F5F5F5
+		}
+		.top1{
+			background-color: #F5F5F5
+		}
+		
+	</style>
+</head>
+	
+		
+		<body class ='top1'>
+			<div id="loader"></div>
+			
+			<nav>
+				<div class="logo">
+					<img src="logo2.png"/>
+				</div>
+
+
+				<div class="div-header">
+
+				<div>
+
+				<label>Search</label>
+				</div>
+				
+
+				<div>
+					
+				<label >Hacker News</label>
+				</div>
+				
+
+</div>
+<div class="search-input">
+					<input type="text" class="input" placeholder="Search stories">
+					<div class="autocom-box">
+					</div>
+</div>
+				
+					<div class="settings">
+					
+<i class="fas fa-cog "></i>
+<a href="settings.html">Settings</a>
+				</div>
+
+				
+			</nav>
+			<div class="title">
+			<span id="tit"></span><b>results</b><br /></div>
+			<br>
+			
+			<label class="search" for="default">Search</label>
+	<select name="default" id="default">
+	<option value="all">All</option>
+	<option value="stories">Stories</option>
+	<option value="comments">Comments</option>
+	</select>
+	<label class="by" for="by">by</label>
+	<select name="default" id="default">
+	<option value="pop">Popularity</option>
+	<option value="date">Date</option>
+	</select>
+	<label class="for" for="data">for</label>
+	<select name="data" id="data">
+		<option value="all">All time</option>
+	<option value="24">Last 24h</option>
+	<option value="week">Past week</option>
+	<option value="month">Past month</option>
+	<option value="year">Past year</option>
+	<option value="forever">Custom range</option>
+	</select>
+	<br><br>
+	
+
+<table class="tablepadding">
+
+	<tbody id='tb1'>
+	</tbody>
+</table>
+<div id='pageno' class="pagedesign">
+        
+
+</div>
+	
+ 
+
+
+		<script>
+
+					var p=[];
+					var total=0;
+					var pagenumber=1;
+					var pageCountFront=0; 
+					var pageCountBack=1;
+					var o=0,j=100,k=50;
+					var total_want=20;
+					var last=0;
+
+				
+					for(var i=0;i<total_want;i++)
+					{
+					fetch('https://hn.algolia.com/api/v1/search?page='+(i+1))
+					  .then(response => response.json())
+					  .then(commits => 
+					  	{	
+					  		for(let d of commits.hits)
+					  		{		
+					  			if(d.title !=""&&d.title !="null" && d.title !='0' && d.title !=null&&d.url !="null" && d.url !='0' && d.url !=null&d.author !="null" && d.author !='0' && d.author !=null&&d.points !="null" && d.points !='0' && d.points !=null)
+		               			{
+					  				p.push(d);
+					  			}
+					  			o++;
+					  		}
+					  		if(o==total_want*total_want)
+					  {
+					  	var img=document.getElementById("loader");
+				img.style.visibility='hidden'
+					  	page();
+					  display(pagenumber);
+					  }
+					  	});
+
+					}
+
+				function page()
+				{
+					document.getElementById('tit').textContent=p.length;
+					var tl=p.length;
+					var dv=tl/20;
+					last=dv;
+					var s=document.getElementById('pageno');
+		            s.innerHTML="";
+		            var h="";
+		            if(pageCountFront>0)
+		            {
+		             h+="<button class =\"symbolbutton\" onclick=\"previous()\">&laquo;</button>";
+		        }
+//<a href="#">&laquo;</a>symbolbutton
+					for (var i=1;i<=dv;i++)
+					{
+                       h+="<button onclick=\"display("+i+")\" ";
+                       if(pagenumber==i)
+                       {
+                       	h+="class =\"button\"";
+                       }
+                       else
+                       {
+                       	h+="class =\"button1\"";
+                       }
+                       h+=">"+i+"</button>";
+					}
+					 if(pageCountBack>0)
+		            {
+					h+="<button class =\"symbolbutton\" onclick=\"next()\">&raquo;</button>";
+					}
+					s.innerHTML+=h;
+
+				}
+				function previous()
+				{
+//alert("previous");
+				pagenumber-=1;
+				display(pagenumber);
+				}
+				function next()
+				{
+				pagenumber+=1;
+				display(pagenumber);
+				//alert("next");
+				}
+ 
+				function display(pageno)
+				{
+					pagenumber=pageno;
+					if(pageno >1)
+					{
+						pageCountFront=1;
+
+					}
+					else
+					{
+						pageCountFront=0;
+					}
+					if(pageno<last-1)
+					{
+						pageCountBack=1;
+
+					}
+					else
+					{
+						pageCountBack=0;
+					}
+
+					page();
+					var t=document.getElementById('tb1');
+		            t.innerHTML="";
+		           	var r="";
+		           	limit=pageno*20;
+		            var start=limit-20;
+		            var end=limit;
+
+		            
+		            for(var i=start;i<end;i++)
+		            {
+		            	
+		                r+="<tr>";		           
+		                r+="<td class=\"tabledata\"><label class=\"font-heading\">"+p[i].title+"</label>(<a href=\""+p[i].url+"\"target=\"_blank\" class=\"font-link\" >"+p[i].url+"</a>)";
+		              	r+="<div class=\"font-points\" >"+p[i].points+ " Points   |  "+p[i].author +  " | ";
+
+		              	var userdatestring=p[i].created_at;
+		              	var datesplit=userdatestring.split("T");
+		              	var splitingdate=datesplit[0].split("-");
+		              	var userdate=new Date(parseInt(splitingdate[0]),(parseInt(splitingdate[1])-1),parseInt(splitingdate[2]));
+		              	var todaydate=new Date();
+		              	var months;
+					    months = (todaydate.getFullYear() - userdate.getFullYear()) * 12;
+					    months -= userdate.getMonth();
+					    months += todaydate.getMonth();
+						var year= parseInt(months/12);
+						if(year>0)
+						{
+								r+=year +" years ago";
+						}
+						else if(months>0)
+						{
+								r+=months +" months ago";
+						}
+						else
+						{
+							var date = todaydate.getDate() - userdate.getDate();
+							r+=date +" dates ago";
+						}
+
+		              	r+="</div></td>";
+		                r+="</tr>";
+
+		                
+					}
+		                
+
+		            t.innerHTML+=r;
+		            
+				}
+
+			</script>
+		
+
+		</body>
+	</head>
+	</html>
